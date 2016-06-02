@@ -18,10 +18,12 @@ trap cleanup SIGINT SIGTERM
 main () {
 	local VAL="${ARGS[1]}"
 
+	echo "====================================="
 	verify "ip" "$VAL"
 	verify "phone" "$VAL"
 	verify "ccn" "$VAL"
 	verify "ssn" "$VAL"
+	echo "====================================="
 }
 
 verify () {
@@ -50,7 +52,7 @@ verify () {
 	esac
 
 	case "$RESULT" in
-		0)	cmessage "TRUE\n" "green";;
+		0)	cmessage " TRUE\n" "green";;
 		1)	cmessage "FALSE\n" "red";;
 	esac
 }
